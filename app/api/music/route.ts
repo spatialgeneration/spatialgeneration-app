@@ -17,33 +17,15 @@ export async function POST(
     const body = await req.json();
     const { prompt  } = body;
 
-    if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
-
-    if (!prompt) {
-      return new NextResponse("Prompt is required", { status: 400 });
-    }
-
-    const freeTrial = await checkApiLimit();
-    const isPro = await checkSubscription();
-
-    if (!freeTrial && !isPro) {
-      return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
-    }
-
     const response = await replicate.run(
-      "riffusion/riffusion:8cf61ea6c56afd61d8f5b9ffd14d7c216c0a93844ce2d82ac1c9ecc9c7f24e05",
+      "facebookresearch/musicgen:7a76a8258b23fae65c5a22debb8841d1d7e816b75c2f24218cd2bd8573787906",
       {
         input: {
-          prompt_a: prompt
+          model_version: "melody",
+          prompt: prompt,
         }
       }
     );
-
-    if (!isPro) {
-      await incrementApiLimit();
-    }
 
     return NextResponse.json(response);
   } catch (error) {
