@@ -53,6 +53,7 @@
     "zustand": "^4.3.9"
   },
   "devDependencies": {
+    "@gradio/client": "^0.1.4",
     "prisma": "^5.0.0"
   }
 }
