@@ -17,7 +17,7 @@ export async function POST(
     const app = await client("https://48852adf75494d318b.gradio.live/");
     const response = await app.predict(1, [	
                     "facebook/musicgen-large",	
-                    "MulitBand_Decoder",
+                    "MultiBand_Decoder",
                     "Driving at night in Shaghai along the bund river in Lambo, clear sky, peaceful, electo, cyber punk, on road, LEDs, light, futuristic, edm",
                     22,
                     250,
