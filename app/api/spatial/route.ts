@@ -14,11 +14,11 @@ export async function POST(
     const body = await req.json();
     const { prompt  } = body;
 
-    const app = await client("https://ecf64063acb00cdce5.gradio.live/");
-    const response = await app.predict(1, [	
+    const app = await client("https://85f00cee8ca5c8de88.gradio.live/");
+    const response = await app.predict(2, [	
                     "facebook/musicgen-large",	
                     "MultiBand_Decoder",
-                    "Driving at night in Shaghai along the bund river in Lambo, clear sky, peaceful, electo, cyber punk, on road, LEDs, light, futuristic, edm",
+                    prompt,
                     22,
                     250,
                     0,
