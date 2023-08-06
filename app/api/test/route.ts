@@ -7,7 +7,6 @@ try {
 const body = await req.json();
 const { prompt } = body;
 
-
 const app = await client("https://85f00cee8ca5c8de88.gradio.live/");
 const result = await app.predict(0, [
     "facebook/musicgen-large",
