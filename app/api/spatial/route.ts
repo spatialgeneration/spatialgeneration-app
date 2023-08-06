@@ -9,7 +9,17 @@ export async function POST(req: Request) {
 
     const app = await client("https://85f00cee8ca5c8de88.gradio.live/)");
 
-    const response = await app.predict(2, ["facebook/musicgen-large", "MultiBand_Decoder", prompt, "", 22, 250, 0, 1, 3]);
+    const response = await app.predict(3, [
+        "facebook/musicgen-large",
+        "MultiBand_Decoder", 
+         prompt,
+         "",
+         22,
+         250,
+         0,
+         1,
+         3,
+        ]);
 
     return NextResponse.json(response);
 
