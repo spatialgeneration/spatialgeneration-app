@@ -6,6 +6,8 @@ const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN!,
 });
 
+export const runtime = 'edge';
+
 export async function POST(
   req: Request
 ) {
@@ -26,6 +28,7 @@ export async function POST(
     );
 
     return NextResponse.json(response);
+    
   } catch (error) {
     console.log('[MUSIC_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });
