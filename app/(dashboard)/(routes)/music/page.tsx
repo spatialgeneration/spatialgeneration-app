@@ -63,6 +63,8 @@ const MusicPage = () => {
 
   return ( 
     <div>
+      <br/>
+      <br/>
       <Heading
         title="Spatial Generation"
         description="Turn your space into music."

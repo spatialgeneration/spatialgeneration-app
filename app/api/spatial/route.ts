@@ -24,13 +24,12 @@ export async function POST(
       3,
     ]).on("data", (data) => {
       console.log('Data:', data);
-      // Here you can handle the data returned by the prediction.
-      // For instance, you can send it as a response to the client.
+
     })
       .on("status", (status) => {
         console.log('Status:', status);
         // Here you can handle the status updates of the prediction.
-      });
+      })
 
     // Assuming NextResponse is a custom response wrapper, you can simply use Next.js response directly
     return NextResponse.json(response);
