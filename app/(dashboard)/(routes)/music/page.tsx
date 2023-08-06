@@ -35,13 +35,16 @@ const MusicPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+
       setMusic(undefined);
 
       const response = await axios.post('/api/music', values);
       console.log(response)
 
       setMusic(response.data.audio);
+
       form.reset();
+
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
@@ -56,8 +59,8 @@ const MusicPage = () => {
   return ( 
     <div>
       <Heading
-        title="Music Generation"
-        description="Turn your prompt into music."
+        title="Spatial Generation"
+        description="Turn your space into music."
         icon={Music}
         iconColor="text-emerald-500"
         bgColor="bg-emerald-500/10"
@@ -87,7 +90,7 @@ const MusicPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading} 
-                      placeholder="Piano solo" 
+                      placeholder="A summer drive down the Pacific Coast highway." 
                       {...field}
                     />
                   </FormControl>
