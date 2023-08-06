@@ -39,6 +39,7 @@ const PhotoPage = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+
     try {
       setPhotos([]);
 
@@ -161,6 +162,9 @@ const PhotoPage = () => {
             />
             <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
               Generate
+            </Button>
+            <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
+              Save
             </Button>
           </form>
         </Form>

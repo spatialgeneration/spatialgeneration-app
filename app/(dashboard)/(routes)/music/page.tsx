@@ -23,6 +23,7 @@ const MusicPage = () => {
   const proModal = useProModal();
   const router = useRouter();
   const [music, setMusic] = useState<string>();
+  const [soundName, setSoundName] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -94,7 +95,7 @@ const MusicPage = () => {
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-10">
                   <FormControl className="m-0 p-0">
-                    <Input
+                  <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading} 
                       placeholder="A summer drive down the Pacific Coast highway." 

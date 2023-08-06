@@ -19,6 +19,12 @@ const routes = [
     href: '/music',
   },
   {
+    label: 'My Songs',
+    icon: Music,
+    color: "text-emerald-500",
+    href: '/songs',
+  },
+  {
     label: 'Settings',
     icon: Settings,
     href: '/settings',

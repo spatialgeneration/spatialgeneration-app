@@ -10,11 +10,11 @@ export async function POST(
     const body = await req.json();
     const { prompt } = body;
 
-    const app = await client("https://85f00cee8ca5c8de88.gradio.live/");
+    const app = await client("https://spatialgeneration-musicgen-mbd.hf.space/");
 
     const response = await app.submit(1, [
       "facebook/musicgen-large",
-      "MultiBand_Decoder",
+      "MultiBand_Diffusion",
       prompt,
       "",
       22,

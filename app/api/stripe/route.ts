@@ -43,7 +43,7 @@ export async function GET() {
           price_data: {
             currency: "USD",
             product_data: {
-              name: "Spacial Generation Pro",
+              name: "Spatial Generation Pro",
               description: "Unlimited AI Generations"
             },
             unit_amount: 2000,
