@@ -13,7 +13,7 @@ const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 
 const routes = [
   {
-    label: 'Spatial Generation',
+    label: 'SpaceGen',
     icon: Music,
     color: "text-emerald-500",
     href: '/music',
@@ -45,7 +45,7 @@ export const Sidebar = ({
             <Image fill alt="Logo" src="/logo.png" />
           </div>
           <h1 className={cn("text-2xl font-bold", poppins.className)}>
-            Spatial Generation
+            SpaceGen
           </h1>
         </Link>
         <div className="space-y-1">

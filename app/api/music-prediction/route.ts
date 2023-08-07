@@ -13,17 +13,11 @@ export async function POST(
     
     const { userId } = auth();
     const body = await req.json();
-    const { prompt  } = body;
+    const { music_prediction_id, music_prediction_url  } = body;
 
-    let prediction = await replicate.predictions.create({
-      version: "7a76a8258b23fae65c5a22debb8841d1d7e816b75c2f24218cd2bd8573787906",
-      input: {
-        model_version: "large",
-        prompt: prompt
-      },
-    });
+    let prediction = await replicate.predictions.get(music_prediction_id);
 
-    return NextResponse.json(prediction);
+    return NextResponse.json(prediction.output);
     
   } catch (error) {
     console.log('[MUSIC_ERROR]', error);

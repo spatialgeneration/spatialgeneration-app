@@ -35,6 +35,7 @@ const MusicPage = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+
     try {
 
       setMusic(undefined);
@@ -43,9 +44,21 @@ const MusicPage = () => {
 
       console.log(response)
 
-      setMusic(response.data);
+      const music_prediction_url = response.data.urls.get;
+      const music_prediction_id = response.data.id;
 
-      form.reset();
+      // Wait 60 seconds for the model to generate the music
+
+      await new Promise(resolve => setTimeout(resolve, 60000));
+
+      const music_data = await axios.post('/api/music-prediction', {
+        music_prediction_id, 
+        music_prediction_url
+      });
+
+      console.log(music_data.data);
+
+      setMusic(music_data.data);
 
     } catch (error: any) {
 
@@ -67,7 +80,7 @@ const MusicPage = () => {
       <br/>
       <br/>
       <Heading
-        title="Spatial Generation"
+        title="SpaceGen"
         description="Turn your space into music."
         icon={Music}
         iconColor="text-emerald-500"
@@ -114,9 +127,6 @@ const MusicPage = () => {
           <div className="p-20">
             <Loader />
           </div>
-        )}
-        {!music && !isLoading && (
-          <Empty label="No music generated." />
         )}
         {music && (
           <audio controls className="w-full mt-8">

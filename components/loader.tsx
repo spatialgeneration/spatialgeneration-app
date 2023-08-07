@@ -11,7 +11,7 @@ export const Loader = () => {
         />
       </div>
       <p className="text-sm text-muted-foreground">
-        Spatial Generation is thinking...
+        SpaceGen is thinking...
       </p>
     </div>
   );

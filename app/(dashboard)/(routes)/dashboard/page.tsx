@@ -28,7 +28,7 @@ export interface Album {
   cover: string
 }
 
-export const listenNowAlbums: Album[] = [
+const listenNowAlbums: Album[] = [
   {
     name: "React Rendezvous",
     artist: "Ethan Byte",
@@ -55,7 +55,7 @@ export const listenNowAlbums: Album[] = [
   },
 ]
 
-export const madeForYouAlbums: Album[] = [
+const madeForYouAlbums: Album[] = [
   {
     name: "Thinking Components",
     artist: "Lena Logic",
@@ -106,7 +106,7 @@ export default function HomePage() {
           Explore the world of generative music
         </h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          Spatial Generation is a platform for generating music based on your landscape and environment using AI.
+          SpaceGen is a platform for generating music based on your landscape and environment using AI.
         </p>
       </div>
       <Tabs defaultValue="music" className="h-full space-y-6">
