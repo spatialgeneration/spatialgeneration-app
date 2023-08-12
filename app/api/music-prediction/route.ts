@@ -17,7 +17,7 @@ export async function POST(
 
     let prediction = await replicate.predictions.get(music_prediction_id);
 
-    return NextResponse.json(prediction.output);
+    return NextResponse.json(prediction);
     
   } catch (error) {
     console.log('[MUSIC_ERROR]', error);

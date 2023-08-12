@@ -119,7 +119,7 @@ export default function HomePage() {
           <div className="ml-auto mr-4">
             <Button>
               <PlusCircledIcon className="mr-2 h-4 w-4" />
-              <a href="/music">Add music</a>
+              <a href="/music">Create music</a>
             </Button>
           </div>
         </div>

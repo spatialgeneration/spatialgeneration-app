@@ -49,7 +49,7 @@ const MusicPage = () => {
 
       // Wait 60 seconds for the model to generate the music
 
-      await new Promise(resolve => setTimeout(resolve, 60000));
+      await new Promise(resolve => setTimeout(resolve, 70000));
 
       const music_data = await axios.post('/api/music-prediction', {
         music_prediction_id, 
@@ -58,7 +58,9 @@ const MusicPage = () => {
 
       console.log(music_data.data);
 
-      setMusic(music_data.data);
+      var generated_music = music_data.data.output;
+
+      setMusic(generated_music);
 
     } catch (error: any) {
 
@@ -123,6 +125,7 @@ const MusicPage = () => {
             </Button>
           </form>
         </Form>
+        <p className="text-gray-500 mt-2 text-xs">This will take ~ 1 minute.</p>
         {isLoading && (
           <div className="p-20">
             <Loader />

@@ -22,17 +22,53 @@ const SongsPage = () => {
 
   const proModal = useProModal();
   const router = useRouter();
-  const [music, setMusic] = useState<string>();
-  const [soundName, setSoundName] = useState<string>();
-  const [songs, setSongs] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  
+  const initialSongs = [
+    {
+      audio_image: '/images/lo.png',
+      audio_file_name: 'lofi.wav',
+      audio_file: '/audio/lofi.wav',
+      audio_tags: ['lofi', 'beats', 'sf'],
+    },
+    {
+      audio_image: '/images/cafemambo.jpg',
+      audio_file_name: 'cafemambo.wav',
+      audio_file: '/audio/cafemambo.wav',
+      audio_tags: ['house', 'tropical', 'ibiza', 'sunset'],
+    },
+    {
+      audio_image: '/images/cafemambo.jpg',
+      audio_file_name: 'cafemambo_extended.wav',
+      audio_file: '/audio/funky_edm_vibes.wav',
+      audio_tags: ['house', 'tropical', 'ibiza', 'sunset'],
+    },
+    {
+      audio_image: '/images/space.jpg',
+      audio_file_name: 'house_techno.wav',
+      audio_file: '/audio/house_techno.wav',
+      audio_tags: ['house', 'techno', 'edm'],
+    },
+    {
+      audio_image: '/images/barca.jpg',
+      audio_file_name: 'chill_edm.wav',
+      audio_file: '/audio/chill_edm.wav',
+      audio_tags: ['house', 'edm', 'chill'],
+    },
+    {
+      audio_image: '/images/autobahn.jpeg',
+      audio_file_name: 'autobahn.wav',
+      audio_file: '/audio/autobahn.wav',
+      audio_tags: ['autobahn', 'speed', 'techno'],
+    },
+  ];
+  
+  const [songs, setSongs] = useState(initialSongs);
+  const [isLoading, setIsLoading] = useState(false);
 
-  songs.push("https://www.youtube.com/watch?v=jfKfPfyJRdk");
-
-  return ( 
+  return (
     <div>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <Heading
         title="My Songs"
         description="Listen to your songs here."
@@ -41,36 +77,50 @@ const SongsPage = () => {
         bgColor="bg-emerald-500/10"
       />
       <div className="px-4 lg:px-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-      {isLoading && (
-          <div className="p-20">
-            <Loader />
-          </div>
-        )}
-      {songs.length === 0 && !isLoading && (
-          <Empty label="No songs generated." />
-        )}
-          {songs.map((src) => (
-            <Card key={src} className="rounded-lg overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
+          {isLoading && (
+            <div className="p-20">
+              <Loader />
+            </div>
+          )}
+          {songs.length === 0 && !isLoading && (
+            <Empty label="No songs generated." />
+          )}
+          {songs.map((song) => (
+            <Card key={song.audio_file_name} className="rounded-lg overflow-hidden">
               <div className="relative aspect-square">
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src={src}
-                  title={src}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen" 
+                <img
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src={song.audio_image}
+                  alt={song.audio_file_name}
                 />
               </div>
+              <div className="p-4">
+                <h2 className="text-lg font-semibold tracking-tight">
+                  {song.audio_file_name}
+                </h2>
+              </div>
+              <div className="flex flex-wrap px-4">
+                {song.audio_tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-1 mr-2 mb-2"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
               <CardFooter className="p-2">
-                <Button onClick={() => window.open(src)} variant="secondary" className="w-full">
-                  Play
-                </Button>
+                <audio controls className="w-full mt-2">
+                  <source src={song.audio_file} />
+                </audio>
               </CardFooter>
             </Card>
           ))}
         </div>
       </div>
     </div>
-   );
-}
+  );
+};
  
 export default SongsPage;
