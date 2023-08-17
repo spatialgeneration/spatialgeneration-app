@@ -60,6 +60,46 @@ const SongsPage = () => {
       audio_file: '/audio/autobahn.wav',
       audio_tags: ['autobahn', 'speed', 'techno'],
     },
+    {
+      audio_image: '/images/instru.jpeg',
+      audio_file_name: 'instrumental.wav',
+      audio_file: '/audio/instrumental.wav',
+      audio_tags: ['instrumental', 'rap', 'music'],
+    },
+    {
+      audio_image: '/images/jackson.jpg',
+      audio_file_name: 'jackson.wav',
+      audio_file: '/audio/jackson.wav',
+      audio_tags: ['jackson', 'country', 'music'],
+    },
+    {
+      audio_image: '/images/yacht.png',
+      audio_file_name: 'yacht.wav',
+      audio_file: '/audio/yacht.wav',
+      audio_tags: ['nirvana', 'perfect', 'heaven'],
+      description: 'Hans Zimmer, Epic, Boat going out to Sea, Violins, Cello, Sunset, Yacht, Dramatic, Nirvana, ClubMed, Beauty, Open Ocean, Heaven, Perfection'
+    },
+    {
+      audio_image: '/images/shanghai.png',
+      audio_file_name: 'shanghai.wav',
+      audio_file: '/audio/shanghai.wav',
+      audio_tags: ['chillwave', 'indietronica', 'electropop' ],
+      description: 'house, edm, LED lights, electronic, future bass, EDM trap music, Chillwave, Indietronica, Electropop, Dance/Electronic'
+    },
+    {
+      audio_image: '/images/sawyercamptrail.png',
+      audio_file_name: 'sawyercamptrail.wav',
+      audio_file: '/audio/sawyercamptrail.wav',
+      audio_tags: ['meditation', 'transcendental', 'peaceful' ],
+      description: 'after morning run meditation sawyer camp trail, meditating sitting on the bench looking out to the pond, peaceful, early am, transcendental'
+    },
+    {
+      audio_image: '/images/platja.png',
+      audio_file_name: 'platja.wav',
+      audio_file: '/audio/platja.wav',
+      audio_tags: ['spanish', 'beach', 'summer' ],
+      description: 'laying on the beach in barcelona, looking down across the sand at the water and the W hotel in the distance, its summer, beautiful sunny day, people are out, its perfect, guitar, spanish, beach vibes, hot, Mediterranean, iberian, catalunya, tapas, beer, tan, sun, birds flying, blue skies, bliss'
+    },
   ];
   
   const [songs, setSongs] = useState(initialSongs);
